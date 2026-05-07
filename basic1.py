@@ -3,7 +3,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import yt_dlp
 import os
 
-BOT_TOKEN = "8779374257:AAEkd7ReDOwktzDB-wMw0IkSOkB0OGgbUSc"
+BOT_TOKEN = os.getenv("bot_tokens")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Send /play <song name>")
