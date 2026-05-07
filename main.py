@@ -44,7 +44,7 @@ async def play(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         # ✅ Correct format
         'remote_components': ['ejs:github'],
-        'cookiefile': 'cookies.txt',
+        
         # ✅ Helps avoid some YouTube issues
         'extractor_args': {
             'youtube': {
