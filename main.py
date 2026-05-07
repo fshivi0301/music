@@ -33,24 +33,20 @@ async def play(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Searching...")
 
     ydl_opts = {
-        'format': 'bestaudio/best',
+        'format': 'bestaudio[ext=m4a]/bestaudio/best',
         'outtmpl': 'song.%(ext)s',
         'quiet': True,
 
         # ✅ Node.js runtime
-        'js_runtimes': {
-            'node': {}
-        },
 
         # ✅ Correct format
-        'remote_components': ['ejs:github'],
 
         'cookiefile': 'cookies.txt',
         
         # ✅ Helps avoid some YouTube issues
         'extractor_args': {
             'youtube': {
-                'player_client': ['android', 'web']
+                'player_client': ['web']
             }
         },
 
