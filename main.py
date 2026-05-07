@@ -1,3 +1,18 @@
+from flask import Flask
+from threading import Thread
+
+web_app = Flask('')
+
+@web_app.route('/')
+def home():
+    return "Bot is running!"
+
+def run():
+    web_app.run(host='0.0.0.0', port=10000)
+
+def keep_alive():
+    t = Thread(target=run)
+    t.start()
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import yt_dlp
@@ -66,4 +81,5 @@ app = ApplicationBuilder().token(BOT_TOKEN)\
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("play", play))
 
+keep_alive()
 app.run_polling()
